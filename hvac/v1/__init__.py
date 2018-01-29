@@ -242,8 +242,6 @@ class Client(object):
         """
         return self._list('/v1/sys/leases/lookup/{0}'.format(path)).json()
 
-    def lookup_
-
     def renew_secret(self, lease_id, increment=None):
         """
         PUT /sys/leases/renew
