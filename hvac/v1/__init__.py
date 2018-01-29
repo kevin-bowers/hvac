@@ -236,6 +236,14 @@ class Client(object):
         """
         return self._get('/v1/sys/leader').json()
 
+    def lookup_secrets(self, path):
+        """
+        LIST /sys/lease/lookup/<path>
+        """
+        return self._list('/v1/sys/leases/lookup/{0}'.format(path)).json()
+
+    def lookup_
+
     def renew_secret(self, lease_id, increment=None):
         """
         PUT /sys/leases/renew
@@ -986,6 +994,9 @@ class Client(object):
 
     def _get(self, url, **kwargs):
         return self.__request('get', url, **kwargs)
+
+    def _list(self, url, **kwargs):
+        return self.__request('list', url, **kwargs)
 
     def _post(self, url, **kwargs):
         return self.__request('post', url, **kwargs)
